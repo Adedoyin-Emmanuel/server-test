@@ -7,9 +7,9 @@ import Joi from "joi";
 
 const useErrorHandler = (
   err: Error,
-  req: Request,
+  _req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction,
 ) => {
   logger.error(err);
 
@@ -20,7 +20,7 @@ const useErrorHandler = (
   return response(
     res,
     500,
-    `${SOMETHING_WENT_WRONG} ${IS_PRODUCTION ? "" : err}`
+    `${SOMETHING_WENT_WRONG} ${IS_PRODUCTION ? "" : err}`,
   );
 };
 

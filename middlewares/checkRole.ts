@@ -10,10 +10,8 @@ declare global {
   }
 }
 
-const useCheckRole = (role: string) => {
-  return (req: Request, res: Response, next: NextFunction) => {
-    const isUser = req.user;
-
+const useCheckRole = (_role: string) => {
+  return (_req: Request, res: Response, _next: NextFunction) => {
     return response(res, 403, INSUFFICIENT_PERMISSION);
   };
 };

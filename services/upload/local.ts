@@ -5,11 +5,14 @@ import logger from "./../../utils/logger";
 
 export default async function localStorage() {
   return {
-      async uploadFile(file: Express.Multer.File) {
-          
+    // @ts-ignore
+    async uploadFile(file: Express.Multer.File) {
       try {
         const uploadDir = path.join(__dirname, "files");
-        const fileExtension = file?.originalname?.split(".")?.pop()?.toLowerCase();
+        const fileExtension = file?.originalname
+          ?.split(".")
+          ?.pop()
+          ?.toLowerCase();
         const newFileName = `${uuidv4().toString()}.${fileExtension}`;
         const filePath = path.join(uploadDir, newFileName);
         await fs.promises.mkdir(uploadDir, { recursive: true });
